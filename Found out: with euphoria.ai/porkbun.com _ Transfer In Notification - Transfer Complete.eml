@@ -1,0 +1,191 @@
+Delivered-To: unicornsocialnetwork@gmail.com
+Received: by 2002:a6b:d319:0:0:0:0:0 with SMTP id s25csp6927046iob;
+        Sat, 30 Apr 2022 02:53:07 -0700 (PDT)
+X-Google-Smtp-Source: ABdhPJzQSP6ezBlBwVIj34ZFLkL03vVLM0Mu0jnbiBNakyfIQZFE+TkDMggbRkTxcdedFrC/57dt
+X-Received: by 2002:a25:dbd1:0:b0:648:3fb9:b0d6 with SMTP id g200-20020a25dbd1000000b006483fb9b0d6mr3069996ybf.531.1651312387058;
+        Sat, 30 Apr 2022 02:53:07 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1651312387; cv=none;
+        d=google.com; s=arc-20160816;
+        b=sCSBTVbNMhPPgS/wTxdkFq1t0gYCFAaDyfbpGHZhtctwowu6ajXZx1jP6bmTocRwa4
+         GbRbJJsxgbjDDF7H3gcEJh4bJh9JLXk1+ZSLtrF1GHrhPXC4IVPP0nFx56DHN7X0mYVQ
+         V946QFH0CeIIihodzralETlx/4tTVxCe507Cfl/55F3+rXRrht0Ue36aTbhlcr8XlXZ/
+         mkWb2zVcleT1iGn7FsE5iAe2hG1cDi7hzBKxvwS9UQpO0phw6OjXV5iMUdh8hbPcMVuI
+         d+RKkxd46C9RXUgG73Htnacd8c4xomh3zUDQovvAmpOmryoYI3n1OvIIP++eDmXImHtH
+         UWzA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
+        h=mime-version:date:feedback-id:to:message-id:subject:from
+         :dkim-signature:dkim-signature;
+        bh=jLorDBzd+PEvU7KzajlHfPunVfbQbvKe50cNEGxB1ck=;
+        b=zS2pkWk75TtBUvtSBRluh87pXYG9pZ14y34Nn/0oW7E3ZjLck4FX3C7x/l75S9z/iD
+         5ajxf6k+Ze6b3lSfQKc62rNyqA1hwWDpoPxOZvgDhsDxPskE4i0xnNFM3OxRQcR1vCbN
+         CL+0Pli+120NS2m3aIWGhxb6/9nIbmfJFiX0fEElbEXR6XMkErcALIqGgTfhiSHjV//o
+         mZVlAZ32Ixj7oS1uXU2vl8fw71r4DG2qvgoWdMeV1iUPBYieiTRpfGEV1q7o7EuXS1vn
+         l2YedG43bWA1vsu0tHKJJ3BjHpcKhNs0/Wtie3E4zqg1odvC/5GdPBzSvubYDBh1v8sF
+         47IA==
+ARC-Authentication-Results: i=1; mx.google.com;
+       dkim=pass header.i=@porkbun.com header.s=mandrill header.b=RJJBSNzk;
+       dkim=pass header.i=@mandrillapp.com header.s=mandrill header.b="o7HZef/y";
+       spf=pass (google.com: domain of bounce-md_30345700.626d0701.v1-30d9b2619e5747238b7e8eaaa1499a94@mandrillapp.com designates 198.2.132.21 as permitted sender) smtp.mailfrom=bounce-md_30345700.626d0701.v1-30d9b2619e5747238b7e8eaaa1499a94@mandrillapp.com;
+       dmarc=pass (p=QUARANTINE sp=QUARANTINE dis=NONE) header.from=porkbun.com
+Return-Path: <bounce-md_30345700.626d0701.v1-30d9b2619e5747238b7e8eaaa1499a94@mandrillapp.com>
+Received: from mail132-21.atl131.mandrillapp.com (mail132-21.atl131.mandrillapp.com. [198.2.132.21])
+        by mx.google.com with ESMTPS id d189-20020a251dc6000000b0064862229eecsi8200514ybd.440.2022.04.30.02.53.06
+        for <unicornsocialnetwork@gmail.com>
+        (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
+        Sat, 30 Apr 2022 02:53:07 -0700 (PDT)
+Received-SPF: pass (google.com: domain of bounce-md_30345700.626d0701.v1-30d9b2619e5747238b7e8eaaa1499a94@mandrillapp.com designates 198.2.132.21 as permitted sender) client-ip=198.2.132.21;
+Authentication-Results: mx.google.com;
+       dkim=pass header.i=@porkbun.com header.s=mandrill header.b=RJJBSNzk;
+       dkim=pass header.i=@mandrillapp.com header.s=mandrill header.b="o7HZef/y";
+       spf=pass (google.com: domain of bounce-md_30345700.626d0701.v1-30d9b2619e5747238b7e8eaaa1499a94@mandrillapp.com designates 198.2.132.21 as permitted sender) smtp.mailfrom=bounce-md_30345700.626d0701.v1-30d9b2619e5747238b7e8eaaa1499a94@mandrillapp.com;
+       dmarc=pass (p=QUARANTINE sp=QUARANTINE dis=NONE) header.from=porkbun.com
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=porkbun.com;
+	s=mandrill; t=1651312385; x=1651614785; i=support@porkbun.com;
+	bh=jLorDBzd+PEvU7KzajlHfPunVfbQbvKe50cNEGxB1ck=;
+	h=From:Subject:Message-Id:To:Feedback-ID:Date:MIME-Version:
+	 Content-Type:CC:Date:Subject;
+	b=RJJBSNzkH1BfDkSEILtyqwO1aAiNixgEjHSMRNnYMAKN5mpvnDZTNtucPSjkl7JYi
+	 laUgs+Sq17VALYV5U6Oairc5fmZMa6uQKu3OxrqKNmrZqRUmcFBSdjivImcCX3gmnI
+	 s5eD5sOBGoYrowWvvaL8o6VdaqLzKxBZR4EHAXAU=
+Received: from pmta09.mandrill.prod.atl01.rsglab.com (localhost [127.0.0.1])
+	by mail132-21.atl131.mandrillapp.com (Mailchimp) with ESMTP id 4Kr4RP5Hgnz1XLHxm
+	for <unicornsocialnetwork@gmail.com>; Sat, 30 Apr 2022 09:53:05 +0000 (GMT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=mandrillapp.com; 
+ i=@mandrillapp.com; q=dns/txt; s=mandrill; t=1651312385; h=From : 
+ Subject : Message-Id : To : Date : MIME-Version : Content-Type : From : 
+ Subject : Date : X-Mandrill-User : List-Unsubscribe; 
+ bh=jLorDBzd+PEvU7KzajlHfPunVfbQbvKe50cNEGxB1ck=; 
+ b=o7HZef/yAF7W69vL6WA95xkUkvXAczi3Jdcvpyu4xu0bJyNuFxy3Mfyp52PJpcKIp7ZKq8
+ FmUP9eMlf8JxDoNVSf//LeLF9J64WvBOJ+UB+Atbal6VY2UH/gHvg+9xe7JdNMbmXH3SxGhX
+ ju+rdSu5/h8aOll2C600ZR9eIU0nc=
+From: Porkbun Support <support@porkbun.com>
+Subject: porkbun.com | Transfer In Notification - Transfer Complete
+Received: from [34.212.12.141] by mandrillapp.com id 30d9b2619e5747238b7e8eaaa1499a94; Sat, 30 Apr 2022 09:53:05 +0000
+Message-Id: <58b532ce30a36b20ac7a3eab8ddf58f5@swift.generated>
+To: unicornsocialnetwork@gmail.com
+X-Report-Abuse: Please forward a copy of this message, including all headers, to abuse@mandrill.com
+X-Report-Abuse: You can also report abuse here: http://mandrillapp.com/contact/abuse?id=30345700.30d9b2619e5747238b7e8eaaa1499a94
+X-Mandrill-User: md_30345700
+Feedback-ID: 30345700:30345700.20220430:md
+Date: Sat, 30 Apr 2022 09:53:05 +0000
+MIME-Version: 1.0
+Content-Type: multipart/alternative; boundary="_av-Y9Zm2fjd1LR5vxsX_aDP8g"
+
+--_av-Y9Zm2fjd1LR5vxsX_aDP8g
+Content-Type: text/plain; charset=utf-8
+Content-Transfer-Encoding: 7bit
+
+       porkbun.com | Transfer In Notification - Transfer Complete          
+        
+ Hello there,
+
+ We'd just like to let you know that the domains shown below have
+transferred over and are now in the *"EuphoriaInc"* account.
+
+ *euphoria.ai
+* 
+If you have any questions, please do not hesitate to contact us. 
+
+Thank you,
+The Porkbun Team <https://twitter.com/Porkbun>
+<https://www.facebook.com/PorkbunLLC/> <https://porkbun.com>   
+ 
+ *Porkbun, LLC*
+ 21370 SW Langer Farms Parkway, Suite 142-429
+ Sherwood, OR 97140, US
+ 
+ 1.855.PORKBUN (1.855.767.5286)
+ support@porkbun.com
+<mailto:support@porkbun.com?subject=Account%20Creation%20Inquiry>
+ 
+ ICANN Registrant Educational Materials
+<https://www.icann.org/resources/pages/educational-2012-02-25-en>
+ 
+ *Copyright Porkbun, LLC, all rights reserved*
+--_av-Y9Zm2fjd1LR5vxsX_aDP8g
+Content-Type: text/html; charset=utf-8
+Content-Transfer-Encoding: 7bit
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:v="urn:schemas-microsoft-com:vml" xmlns:o="urn:schemas-microsoft-com:office:office">
+  <head>
+    <!--[if gte mso 15]>
+    <xml>
+      <o:OfficeDocumentSettings>
+      <o:AllowPNG/>
+      <o:PixelsPerInch>96</o:PixelsPerInch>
+      </o:OfficeDocumentSettings>
+    </xml>
+    <![endif]-->
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>porkbun.com | Transfer In Notification - Transfer Complete</title>
+  </head>
+  <body style="height:100%; margin:0; padding:0; width:100%; -ms-text-size-adjust:100%; -webkit-text-size-adjust:100%; background-color:#FAFAFA;">
+
+
+<table width="100%" border="0" cellspacing="0" cellpadding="0" bgcolor="#FAFAFA" role="presentation" style="table-layout:fixed;">
+  <tr>
+    <td style="font-size:0px">&nbsp;
+    </td>
+    <td align="center" width="600" bgcolor="white">
+      <table width="600" border="0" cellspacing="0" cellpadding="0" class="mobilewrapper" align="center">
+        <tr>
+          <td>
+            <img src="https://gallery.mailchimp.com/00f0ca4647a780993935ec2df/images/450f9017-18fc-42fb-94cd-c2708f92b4d1.jpg" alt="Porkbun Header Image" width="600" style="display:block; width:600px; max-width:600px; height:auto;" />
+          </td>
+        </tr>
+      </table>
+      <table width="600" border="0" cellspacing="0" cellpadding="0" class="mobilewrapper" align="center">
+        <tr>
+          <td>
+	    <br>
+            Hello there,<br><br>
+            We'd just like to let you know that the domains shown below have transferred over and are now in the <strong>"EuphoriaInc"</strong> account.<br><br>
+<strong>euphoria.ai<br></strong>
+<br>If you have any questions, please do not hesitate to contact us.
+
+            <br><br>Thank you,<br>The Porkbun Team
+	    <br><br>
+          </td>
+        </tr>
+      </table>
+      <table width="600" border="0" cellspacing="0" cellpadding="0" class="mobilewrapper" align="center" style="background-color:#222222; color:#656565;">
+        <tr>
+          <td style="padding:20px; text-align:center;">
+	    <table width="300" border="0" cellspacing="0" cellpadding="0" class="mobilewrapper" align="center" style="">
+	      <tr>
+	        <td align="center"><a href="https://mandrillapp.com/track/click/30345700/twitter.com?p=eyJzIjoiQ2xLSlFJQUQtaFZXSHBfaUtxSEw4QTl0T2lJIiwidiI6MSwicCI6IntcInVcIjozMDM0NTcwMCxcInZcIjoxLFwidXJsXCI6XCJodHRwczpcXFwvXFxcL3R3aXR0ZXIuY29tXFxcL1BvcmtidW5cIixcImlkXCI6XCIzMGQ5YjI2MTllNTc0NzIzOGI3ZThlYWFhMTQ5OWE5NFwiLFwidXJsX2lkc1wiOltcIjc0MDViMWJhNDY3ZjM0ZTBmYmE0YWIwMWVjNDFkOWRmY2Q4ODI2MTVcIl19In0" target="_blank" style="mso-line-height-rule: exactly;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;"><img src="https://cdn-images.mailchimp.com/icons/social-block-v2/light-twitter-48.png" style="display: block;border: 0;height: auto;outline: none;text-decoration: none;-ms-interpolation-mode: bicubic;" height="24" width="24" class=""></a></td>
+	        <td align="center"><a href="https://mandrillapp.com/track/click/30345700/www.facebook.com?p=eyJzIjoiQy1FSlFWZlRnU3l1THlXdE1IZkVXTlEzakRFIiwidiI6MSwicCI6IntcInVcIjozMDM0NTcwMCxcInZcIjoxLFwidXJsXCI6XCJodHRwczpcXFwvXFxcL3d3dy5mYWNlYm9vay5jb21cXFwvUG9ya2J1bkxMQ1xcXC9cIixcImlkXCI6XCIzMGQ5YjI2MTllNTc0NzIzOGI3ZThlYWFhMTQ5OWE5NFwiLFwidXJsX2lkc1wiOltcIjNlOTdkNmFiYWVmNDA4MDA1M2EzNDYzM2QyN2YxMTY4ZWUzMjljZGZcIl19In0" target="_blank" style="mso-line-height-rule: exactly;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;"><img src="https://cdn-images.mailchimp.com/icons/social-block-v2/light-facebook-48.png" style="display: block;border: 0;height: auto;outline: none;text-decoration: none;-ms-interpolation-mode: bicubic;" height="24" width="24" class=""></a></td>
+	        <td align="center"><a href="https://mandrillapp.com/track/click/30345700/porkbun.com?p=eyJzIjoiTjI3T183QjRwWTZyWTR1THR1dTlzQkdOVDI4IiwidiI6MSwicCI6IntcInVcIjozMDM0NTcwMCxcInZcIjoxLFwidXJsXCI6XCJodHRwczpcXFwvXFxcL3BvcmtidW4uY29tXCIsXCJpZFwiOlwiMzBkOWIyNjE5ZTU3NDcyMzhiN2U4ZWFhYTE0OTlhOTRcIixcInVybF9pZHNcIjpbXCIwZWQ4ODM4MTI2YTkyODQ4M2M3YmZjODVhNTk3NzQwM2JhZTZhYTY3XCJdfSJ9" target="_blank" style="mso-line-height-rule: exactly;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;"><img src="https://cdn-images.mailchimp.com/icons/social-block-v2/light-link-48.png" style="display: block;border: 0;height: auto;outline: none;text-decoration: none;-ms-interpolation-mode: bicubic;" height="24" width="24" class=""></a></td>
+	      </tr>
+	    </table>
+<br>
+<br>
+<em>Porkbun, LLC</em><br>
+21370 SW Langer Farms Parkway, Suite 142-429<br>
+Sherwood, OR 97140, US<br>
+<br>
+1.855.PORKBUN (1.855.767.5286)<br>
+<a href="mailto:support@porkbun.com?subject=Account%20Creation%20Inquiry" target="_blank" title="Ask For Help" style="mso-line-height-rule: exactly;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;color: #656565; font-weight: normal;text-decoration: underline;">support@porkbun.com</a><br>
+<br>
+<a href="https://mandrillapp.com/track/click/30345700/www.icann.org?p=eyJzIjoiMHpPa1NDMmZVLWJocXFfRXdndHFuN0gwQVdBIiwidiI6MSwicCI6IntcInVcIjozMDM0NTcwMCxcInZcIjoxLFwidXJsXCI6XCJodHRwczpcXFwvXFxcL3d3dy5pY2Fubi5vcmdcXFwvcmVzb3VyY2VzXFxcL3BhZ2VzXFxcL2VkdWNhdGlvbmFsLTIwMTItMDItMjUtZW5cIixcImlkXCI6XCIzMGQ5YjI2MTllNTc0NzIzOGI3ZThlYWFhMTQ5OWE5NFwiLFwidXJsX2lkc1wiOltcImU4MGVmMGNlM2E3OTZlNzM3YWRkMDM4NTk4NGUzNmI0MGEyMDNhZjFcIl19In0" target="_blank" style="mso-line-height-rule: exactly;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;color: #656565;font-weight: normal;text-decoration: underline;">ICANN Registrant Educational Materials</a><br>
+<br>
+<em>Copyright Porkbun, LLC, all rights reserved</em>
+<br>
+<br>
+<p></p>
+          </td>
+        </tr>
+      </table>
+    </td>
+    <td style="font-size:0px">&nbsp;
+    </td>
+  </tr>
+</table>
+
+  <img src="https://mandrillapp.com/track/open.php?u=30345700&id=30d9b2619e5747238b7e8eaaa1499a94" height="1" width="1"></body>
+</html>
+--_av-Y9Zm2fjd1LR5vxsX_aDP8g--
+
